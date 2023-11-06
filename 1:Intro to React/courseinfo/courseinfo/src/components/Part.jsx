@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Part ({part,exercises}) {
+export default function Part (props) {
     return (
-        <p>{part} {exercises} </p>
+        <p>{props.part.name} {props.part.exercises} </p>
     )
 
 
