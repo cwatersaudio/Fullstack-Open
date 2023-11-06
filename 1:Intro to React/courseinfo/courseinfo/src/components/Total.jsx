@@ -1,8 +1,8 @@
 import React from "react"
 
-export default function Total (props) { //didn't destructure props this time...trying things out
-    
+export default function Total (props) { 
+        const [part1,part2,part3] = props.parts
     return (
-        <p>Total number of exercises {props.exercises1 + props.exercises2 + props.exercises3}</p>
+        <p>Total number of exercises {part1.exercises + part2.exercises + part3.exercises}</p>
     )
 }
