@@ -5,13 +5,18 @@ export default function Feedback(props) {
     
 
     function butClick(event) {
-        updateFeedback(prevFeedback => {
-            
-            return {
-            ...prevFeedback,
-            [prevFeedback.event.name] : prevFeedback.event + 1 
-            }
-        })
+        let eventName = event.target.name
+        console.log(feedback)
+        switch (eventName) {
+            case "good":
+                updateFeedback(prevFeedback => {
+
+                    return {
+                    ...prevFeedback,
+                    good: prevFeedback.good +1
+                    }
+                })
+        }
     }
     
     return (
