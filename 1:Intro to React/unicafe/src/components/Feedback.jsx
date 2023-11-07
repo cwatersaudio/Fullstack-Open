@@ -1,23 +1,21 @@
 import React from 'react'
 
 export default function Feedback(props) {
-    const [feedback,updateFeedback] = React.useState({good: 0,neutral:0,bad:0})
+    const [feedback,updateFeedback] = React.useState({good:0,neutral:0,bad:0})
     
 
     function butClick(event) {
         let eventName = event.target.name
         console.log(feedback)
-        switch (eventName) {
-            case "good":
-                updateFeedback(prevFeedback => {
-
-                    return {
-                    ...prevFeedback,
-                    good: prevFeedback.good +1
-                    }
-                })
+        console.log(eventName)
+        updateFeedback(prevFeedback => {
+            return {
+                ...prevFeedback,
+                [eventName]: prevFeedback.eventName + 1
+            }
+        })
         }
-    }
+    
     
     return (
         <>
@@ -28,4 +26,4 @@ export default function Feedback(props) {
         
         </>
     )
-}
+    }
