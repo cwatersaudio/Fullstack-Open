@@ -8,12 +8,11 @@ export default function Feedback(props) {
         let eventName = event.target.name
         console.log(feedback)
         console.log(eventName)
-        updateFeedback(prevFeedback => {
-            return {
-                ...prevFeedback,
-                [eventName]: prevFeedback.eventName + 1
-            }
-        })
+        let tempState = {
+            ...feedback,
+            [eventName]: 6
+        }
+        console.log("temp state is:" + tempState.eventName)
         }
     
     
