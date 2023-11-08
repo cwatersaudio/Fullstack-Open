@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Stats({good,neutral,bad}) {
+export default function Statistics({good,neutral,bad}) {
     return (
         <>
         <h2>Statistics:</h2>

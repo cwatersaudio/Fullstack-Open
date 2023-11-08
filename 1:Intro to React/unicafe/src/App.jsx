@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import Feedback from './components/Feedback'
-import Stats from './components/Stats'
+import Statistics from './components/Statistics'
 
 function App() {
   const [feedback,updateFeedback] = React.useState({good:0,neutral:0,bad:0})
@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Feedback feedback={feedback} updateFeedback={updateFeedback}/>
-      <Stats good={good} neutral={neutral} bad={bad}/>
+      <Statistics good={good} neutral={neutral} bad={bad}/>
     </>
   )
 }
