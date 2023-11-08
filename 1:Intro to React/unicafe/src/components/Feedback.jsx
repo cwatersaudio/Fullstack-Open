@@ -1,15 +1,15 @@
 import React from 'react'
 
-export default function Feedback(props) {
-    const [feedback,updateFeedback] = React.useState({good:0,neutral:0,bad:0})
+export default function Feedback({feedback,updateFeedback}) {
+    
+    
     
 
     function handleClick(event) {
         let eventName = event.target.name
         console.log(eventName) //here 'eventName' appears to be a string
         console.log(feedback) //monitoring state
-        console.log(feedback.eventName) //returns 'NaN'
-        console.log(feedback.good) //returns 1 (i.e. returns value of 'good')
+        console.log(feedback[eventName]) //returns 'NaN'
         updateFeedback(prevFeedback => {
             return{
                 ...prevFeedback,
