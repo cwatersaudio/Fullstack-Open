@@ -9,10 +9,13 @@ function App() {
   let totalVotes = good + neutral + bad
 
   return (
-    <>
-      <Feedback feedback={feedback} updateFeedback={updateFeedback}/>
-      <Statistics good={good} neutral={neutral} bad={bad} totalVotes={totalVotes}/>
-    </>
+    
+      <main>
+        <Feedback feedback={feedback} updateFeedback={updateFeedback}/>
+        <Statistics good={good} neutral={neutral} bad={bad} totalVotes={totalVotes}/>
+      </main>
+  
+    
   )
 }
 
