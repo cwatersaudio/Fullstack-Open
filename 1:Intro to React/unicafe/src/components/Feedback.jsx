@@ -1,8 +1,7 @@
 import React from 'react'
+import Button from './Button'
 
 export default function Feedback({feedback,updateFeedback}) {
-    
-    
     
 
     function handleClick(event) {
@@ -24,9 +23,9 @@ export default function Feedback({feedback,updateFeedback}) {
     return (
         <>
             <h2>Give Feedback:</h2>
-            <button name="good" onClick={handleClick}>Good</button>
-            <button name="neutral" onClick={handleClick}>Neutral</button>
-            <button name="bad" onClick={handleClick}>Bad</button>
+            <Button handleClick={handleClick} name="good" title="Good"/>
+            <Button handleClick={handleClick} name="neutral" title="Neutral"/>
+            <Button handleClick={handleClick} name="bad" title="Bad"/>
         
         </>
     )
