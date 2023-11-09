@@ -22,23 +22,34 @@ const App = () => {
   let randIndex = ""
 
 
-  const [anecdoteData, updateanecdoteData] = useState({anecdoteArray,selected:"No anecdote selected yet!"})
-  console.log(anecdoteData)
+  const [anecdoteData, updateAnecdoteData] = useState({anecdoteArray,selected:{anecdote:"No anecdote selected yet!"}})
+  console.log(anecdoteData.anecdoteArray)
+  console.log(anecdoteData.selected)
   function handleClick () {
     randIndex = Math.floor(Math.random() * anecdoteArray.length)
-    updateanecdoteData(prevData => {
+    updateAnecdoteData(prevData => {
       return {
         ...prevData,
-        selected:[prevData.anecdoteArray[randIndex].anecdote]
+        selected:[prevData.anecdoteArray[randIndex]]
       }
     }) 
   }
 
+  function handleVote () {
+      updateAnecdoteData(prevData => {
+        const {id,vote} = selected
+        return {
+          ...prevData,
+          [prevData[anecdoteArray][id][vote]]: vote +1
+        }
+      })
+  }
+
   return (
     <div>
-      {<p>{anecdoteData.selected}</p>}
+      {<p>{anecdoteData.selected.anecdote}</p>}
       <button onClick={handleClick}>New anecdote</button>
-
+      <button onClick={handleVote}>Vote</button>
     </div>
   )
 }
