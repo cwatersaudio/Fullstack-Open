@@ -1,6 +1,7 @@
 import React from 'react'
+import StatisticLine from './StatisticLine'
 
-export default function Statistics({good,neutral,bad, totalVotes}) {
+export default function Statistics({good,neutral,bad,totalVotes}) {
 
     const feedbackAverage = () => {
         return(
@@ -11,16 +12,15 @@ export default function Statistics({good,neutral,bad, totalVotes}) {
         <>
         <h2>Statistics:</h2>
            {totalVotes ? <section> 
-                <p>Good: {good}</p>
-                <p>Bad: {bad}</p>
-                <p>Neutral: {neutral}</p>
-                <p>Total Votes: {totalVotes} </p>
-            
-            
-                <p>Positive: {good/totalVotes}%</p>
-                <p>Average: {feedbackAverage()}</p>
-
+            <StatisticLine title="Good" value={good}/>
+            <StatisticLine title="Bad" value={bad}/>
+            <StatisticLine title="Neutral" value={neutral}/>
+            <StatisticLine title="Total Votes" value={totalVotes}/>
+            <StatisticLine title="Positive" value={good/totalVotes}/>
+            <StatisticLine title="Average" value={feedbackAverage()}/>
             </section>  : <p>No votes yet!</p>}
+            
+
         </>
     )
 }
