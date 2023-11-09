@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function Statistics({good,neutral,bad}) {
-    let totalVotes = good + neutral + bad
+export default function Statistics({good,neutral,bad, totalVotes}) {
 
     const feedbackAverage = () => {
         return(
@@ -11,17 +10,17 @@ export default function Statistics({good,neutral,bad}) {
     return (
         <>
         <h2>Statistics:</h2>
-           <section> 
+           {totalVotes ? <section> 
                 <p>Good: {good}</p>
                 <p>Bad: {bad}</p>
                 <p>Neutral: {neutral}</p>
                 <p>Total Votes: {totalVotes} </p>
-            </section>
-            <section>
+            
+            
                 <p>Positive: {good/totalVotes}%</p>
                 <p>Average: {feedbackAverage()}</p>
 
-            </section>
+            </section>  : <p>No votes yet!</p>}
         </>
     )
 }
