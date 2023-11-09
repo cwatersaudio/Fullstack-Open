@@ -6,9 +6,6 @@ export default function Feedback({feedback,updateFeedback}) {
 
     function handleClick(event) {
         let eventName = event.target.name
-        console.log(eventName) //here 'eventName' appears to be a string
-        console.log(feedback) //monitoring state
-        console.log(feedback[eventName]) 
         updateFeedback(prevFeedback => {
             return{
                 ...prevFeedback,
