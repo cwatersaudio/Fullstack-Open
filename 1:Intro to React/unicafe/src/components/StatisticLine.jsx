@@ -6,7 +6,10 @@ export default function StatisticLine (props) {
     return (
     <>
         
-            <p>{props.title}: {props.value} </p>
+            <tr>
+                <td>{props.title}:</td> 
+                <td>{props.value}</td> 
+            </tr>
 
 
         
