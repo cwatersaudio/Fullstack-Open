@@ -13,7 +13,7 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.',
     'The only way to go fast, is to go well.'
   ]
-  const anecdoteArray = anecdotes.map((item,index) => { //adds vote and id property to each anecdote
+  let anecdoteArray = anecdotes.map((item,index) => { //adds vote and id property to each anecdote
     return {anecdote:item,
             vote:0,
             id:index}
@@ -23,8 +23,7 @@ const App = () => {
 
 
   const [anecdoteData, updateAnecdoteData] = useState({anecdoteArray,selected:{anecdote:"No anecdote selected yet!"}})
-  console.log(anecdoteData.anecdoteArray)
-  console.log(anecdoteData.selected)
+  console.log(anecdoteData)
  
  function handleClick () {
     randIndex = Math.floor(Math.random() * anecdoteArray.length)
@@ -38,14 +37,28 @@ const App = () => {
   }
 
   function handleVote () {
-      updateAnecdoteData(prevData => {
-        const {id,vote} = selected
-        return {
-          ...prevData,
-          [prevData[anecdoteArray][id][vote]]: vote +1
-        }
-      })
+    
+      let {id} = anecdoteData.selected //gets id and vote count from 'selected'
+      const newAnecdotes = anecdoteArray.map(item => {
+        if (item.id === id) {
+          return {
+          ...item,
+          vote: item.vote + 1
+          } 
+        } else {
+          return {...item}
+        }     
+    
+    })
+    console.log(newAnecdotes)
+    updateAnecdoteData(prevData => {
+      return {
+        ...prevData,
+        anecdoteArray: newAnecdotes
+      }
+    })
   }
+
 
   return (
     <div>
