@@ -22,7 +22,7 @@ const App = () => {
   let randIndex = ""
 
 
-  const [anecdoteData, updateAnecdoteData] = useState({anecdoteArray,selected:{anecdote:"No anecdote selected yet!"}})
+  const [anecdoteData, updateAnecdoteData] = useState({anecdoteArray,selected:{anecdote:"No anecdote selected yet!"}}) //initializes state with an array of objects and a selected object
   console.log(anecdoteData)
  
  function handleClick () {
