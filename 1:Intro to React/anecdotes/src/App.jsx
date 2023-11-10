@@ -52,8 +52,8 @@ const App = () => {
 
   return (
     <div>
-      {<p>{anecdoteData.selected.anecdote}</p>}
-      {randIndex && <p>Current vote is: {anecdoteData.anecdoteArray[randIndex].vote}</p>}
+      <p>{anecdoteData.selected.anecdote}</p>
+      {anecdoteData.selected.id > -1 && <p>Current vote is: {anecdoteData.selected.vote}</p>}
       <button onClick={handleClick}>New anecdote</button>
       <button onClick={() => (handleVote(anecdoteData.selected.id))}>Vote</button>
     </div>
