@@ -40,11 +40,15 @@ const App = () => {
     const newAnecdotes = [...anecdoteData.anecdoteArray]
     newAnecdotes[id].vote = newAnecdotes[id].vote + 1
     console.log(newAnecdotes[id])
+    const updatedObject = anecdoteData.anecdoteArray[id]
+    updatedObject.vote = updatedObject.vote + 1
 
     updateAnecdoteData(prevData => {
       return {
         ...prevData,
-        anecdoteArray: newAnecdotes,
+        anecdoteArray: [...prevData.anecdoteArray,
+                        anecdoteArray[id] = updatedObject
+                        ],
         selected: newAnecdotes[id]
       }
     })
