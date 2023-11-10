@@ -13,7 +13,7 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.',
     'The only way to go fast, is to go well.'
   ]
-  let anecdoteArray = anecdotes.map((item,index) => { //adds vote and id property to each anecdote
+  const anecdoteArray = anecdotes.map((item,index) => { //adds vote and id property to each anecdote
     return {anecdote:item,
             vote:0,
             id:index}
@@ -36,21 +36,11 @@ const App = () => {
     }) 
   }
 
-  function handleVote () {
-    
-      let {id} = anecdoteData.selected //gets id and vote count from 'selected'
-      const newAnecdotes = anecdoteArray.map(item => {
-        if (item.id === id) {
-          return {
-          ...item,
-          vote: item.vote + 1
-          } 
-        } else {
-          return {...item}
-        }     
-    
-    })
-    console.log(newAnecdotes)
+  function handleVote (id) {
+    const newAnecdotes = [...anecdoteData.anecdoteArray]
+    newAnecdotes[id].vote = newAnecdotes[id].vote + 1
+    console.log(newAnecdotes[id])
+
     updateAnecdoteData(prevData => {
       return {
         ...prevData,
@@ -59,12 +49,11 @@ const App = () => {
     })
   }
 
-
   return (
     <div>
       {<p>{anecdoteData.selected.anecdote}</p>}
       <button onClick={handleClick}>New anecdote</button>
-      <button onClick={handleVote}>Vote</button>
+      <button onClick={() => (handleVote(anecdoteData.selected.id))}>Vote</button>
     </div>
   )
 }
