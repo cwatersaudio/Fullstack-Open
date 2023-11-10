@@ -44,7 +44,8 @@ const App = () => {
     updateAnecdoteData(prevData => {
       return {
         ...prevData,
-        anecdoteArray: newAnecdotes
+        anecdoteArray: newAnecdotes,
+        selected: newAnecdotes[id]
       }
     })
   }
@@ -52,6 +53,7 @@ const App = () => {
   return (
     <div>
       {<p>{anecdoteData.selected.anecdote}</p>}
+      {randIndex && <p>Current vote is: {anecdoteData.anecdoteArray[randIndex].vote}</p>}
       <button onClick={handleClick}>New anecdote</button>
       <button onClick={() => (handleVote(anecdoteData.selected.id))}>Vote</button>
     </div>
