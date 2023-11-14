@@ -22,11 +22,11 @@ const App = () => {
   let randIndex = ""
 
 
-  const [anecdoteData, updateAnecdoteData] = useState({anecdoteArray,selected:{anecdote:"No anecdote selected yet!"}}) //initializes state with an array of objects and a selected object
+  const [anecdoteData, updateAnecdoteData] = useState({anecdoteArray,selected:{anecdote:"No anecdote selected yet!"},mostVotes:{}}) //initializes state as an object containing an array of anecdote objects, a 'selected' object, and a 'mostVotes' object
   console.log(anecdoteData)
  
  function handleClick () {
-    randIndex = Math.floor(Math.random() * anecdoteArray.length)
+    randIndex = Math.floor(Math.random() * anecdoteArray.length) //generates a random integer and assigns it to the global 'randIndex' variable
     
     updateAnecdoteData(prevData => {
       return {
@@ -40,19 +40,25 @@ const App = () => {
     const newAnecdotes = [...anecdoteData.anecdoteArray]
     newAnecdotes[id].vote = newAnecdotes[id].vote + 1
     console.log(newAnecdotes[id])
-    const updatedObject = anecdoteData.anecdoteArray[id]
-    updatedObject.vote = updatedObject.vote + 1
-
+    
+    
     updateAnecdoteData(prevData => {
       return {
         ...prevData,
-        anecdoteArray: [...prevData.anecdoteArray,
-                        anecdoteArray[id] = updatedObject
-                        ],
-        selected: newAnecdotes[id]
+        anecdoteArray: newAnecdotes,
+        selected: newAnecdotes[id],
+        mostVotes: voteTally(newAnecdotes)
       }
     })
   }
+
+  function voteTally (arr) {
+      const maxID = arr.reduce((maxIndex, elem, i, arr) => 
+        elem.vote > arr[maxIndex].vote ? i : maxIndex, 0); 
+
+        return anecdoteData.anecdoteArray[maxID]
+    } 
+    
 
   return (
     <div>
@@ -60,6 +66,8 @@ const App = () => {
       {anecdoteData.selected.id > -1 && <p>Current vote is: {anecdoteData.selected.vote}</p>}
       <button onClick={handleClick}>New anecdote</button>
       <button onClick={() => (handleVote(anecdoteData.selected.id))}>Vote</button>
+      {anecdoteData.mostVotes.id && <h2>The anecdote with the most votes is:</h2> }
+      {anecdoteData.mostVotes && <p>{anecdoteData.mostVotes.anecdote}</p>}
     </div>
   )
 }
