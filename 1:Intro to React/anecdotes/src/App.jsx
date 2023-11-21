@@ -62,6 +62,7 @@ const App = () => {
 
   return (
     <div>
+      <h2>Anecdote of the Day</h2>
       <p>{anecdoteData.selected.anecdote}</p>
       {anecdoteData.selected.id > -1 && <p>Current vote is: {anecdoteData.selected.vote}</p>}
       <button onClick={handleClick}>New anecdote</button>
