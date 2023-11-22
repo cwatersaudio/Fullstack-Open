@@ -5,7 +5,7 @@ export default function Content (props) {
 
     const partDisplay = props.parts.map(item => {
             return (
-                <Part part={item}/>
+                <Part part={item} key={item.id}/>
             )
         })
     
