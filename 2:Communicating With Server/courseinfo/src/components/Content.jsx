@@ -1,11 +1,11 @@
 import React from "react"
 import Part from "./Part"
 
-export default function Content (props) {
+export default function Content ({parts}) {
 
-    const partDisplay = props.parts.map(item => {
+    const partDisplay = parts.map(item => {
             return (
-                <Part part={item} key={item.id}/>
+                <Part name={item.name} key={item.id} exercises={item.exercises}/>
             )
         })
     

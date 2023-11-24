@@ -3,16 +3,16 @@ import Content from './Content.jsx'
 import Total from './Total.jsx'
 import React from 'react'
 
-const Course = ({course}) => {
+const Course = ({name,parts}) => {
 
 return (
     <div>
-      <Header course={course}/>
+      <Header name={name}/>
       <Content
-      parts={course.parts}
+      parts={parts}
       />
       <Total
-      parts={course.parts}
+      parts={parts}
       />
       
       
