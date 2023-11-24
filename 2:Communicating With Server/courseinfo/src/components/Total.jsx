@@ -1,11 +1,16 @@
 import React from "react"
 
-export default function Total (props) { 
-        const [part1,part2,part3] = props.parts
+export default function Total ({parts}) { 
+    console.log(parts);   
+    let runningTotal = 0;
+    parts.forEach(element => {
+            runningTotal += element.exercises 
+            console.log(runningTotal)
+        }
         
-        const exerciseTotal = props.reduce
-    
+        )
+            
         return (
-        <strong> Total number of exercises {part1.exercises + part2.exercises + part3.exercises}</strong>
+        <strong> Total number of exercises {runningTotal}</strong>
     )
 }
