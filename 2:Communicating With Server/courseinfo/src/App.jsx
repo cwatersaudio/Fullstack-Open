@@ -45,6 +45,22 @@ const App = () => {
           id: 2
         }
       ]
+    },
+    {
+      name: 'JQuery',
+      id: 3,
+      parts: [
+        {
+          name: 'Fundamentals of JQuery',
+          exercises: 10,
+          id: 1
+        },
+        {
+          name: 'JQuery simplified',
+          exercises: 10,
+          id: 2
+        },
+      ]
     }
   ]
  
